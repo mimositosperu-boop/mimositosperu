@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mimositos</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:'Montserrat', sans-serif;
+background:#f0f0f0;
+color:#4a3b35;
+}
+
+h1,h2,h3{
+font-family:'Playfair Display', serif;
+}
+
+header{
+text-align:center;
+padding:20px;
+background:white;
+}
+
+header img{
+height:90px;
+}
+
+nav{
+background:#a9745a;
+padding:15px;
+text-align:center;
+}
+
+nav a{
+color:white;
+margin:0 15px;
+text-decoration:none;
+font-weight:500;
+}
+
+.inicio{
+background-image:url("foto1.jpeg");
+background-size:cover;
+background-position:center;
+padding:160px 20px;
+text-align:center;
+color:white;
+position:relative;
+}
+
+.inicio::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.45);
+}
+
+.inicio-contenido{
+position:relative;
+z-index:2;
+}
+
+section{
+padding:60px 20px;
+}
+
+.boton{
+background:#a9745a;
+color:white;
+padding:10px 18px;
+border-radius:6px;
+text-decoration:none;
+display:inline-block;
+margin-top:10px;
+cursor:pointer;
+}
+
+.filtros{
+text-align:center;
+}
+
+.filtros button{
+padding:10px 20px;
+margin:5px;
+border:none;
+background:#a9745a;
+color:white;
+border-radius:5px;
+cursor:pointer;
+}
+
+.galeria{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:25px;
+padding:40px;
+}
+
+.producto{
+background:white;
+border-radius:10px;
+box-shadow:0 4px 12px rgba(0,0,0,0.08);
+overflow:hidden;
+}
+
+.producto img{
+width:100%;
+height:260px;
+object-fit:cover;
+cursor:pointer;
+}
+
+.info{
+padding:15px;
+text-align:center;
+}
+
+.precio{
+color:#a9745a;
+font-weight:bold;
+}
+
+.redes{
+text-align:center;
+}
+
+.redes img{
+width:60px;
+margin:15px;
+}
+
+footer{
+background:#a9745a;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+/* LIGHTBOX */
+
+.lightbox{
+display:none;
+position:fixed;
+z-index:1000;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+justify-content:center;
+align-items:center;
+}
+
+.lightbox img{
+max-width:90%;
+max-height:90%;
+}
+
+.lightbox span{
+position:absolute;
+top:30px;
+right:40px;
+color:white;
+font-size:40px;
+cursor:pointer;
+}
+
+/* WHATSAPP FLOTANTE */
+
+.whatsapp-float{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#25D366;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 4px 10px rgba(0,0,0,0.3);
+z-index:999;
+}
+
+.whatsapp-float img{
+width:35px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<img src="logo.png">
+</header>
+
+<nav>
+<a href="#inicio">Inicio</a>
+<a href="#productos">Productos</a>
+<a href="#sobre">Sobre Nosotros</a>
+<a href="#redes">Redes Sociales</a>
+<a href="#politicas">Políticas</a>
+<a href="#contacto">Contacto</a>
+</nav>
+
+<section id="inicio" class="inicio">
+<div class="inicio-contenido">
+<h1>Mimositos</h1>
+<p>Transformamos emociones en detalles inolvidables</p>
+</div>
+</section>
+
+<section id="productos">
+
+<h2 style="text-align:center">Nuestros Productos</h2>
+
+<div class="filtros">
+<button onclick="filtrar('todos')">Todos</button>
+<button onclick="filtrar('rosas')">Rosas eternas</button>
+<button onclick="filtrar('personalizados')">Personalizados</button>
+<button onclick="filtrar('sanvalentin')">San Valentín</button>
+<button onclick="filtrar('ellos')">Para ellos</button>
+</div>
+
+<div class="galeria">
+
+<!-- RAMOS ETERNOS -->
+
+<div class="producto rosas"><img src="foto3.jpeg" onclick="abrirImagen(this)"><div class="info"><h3>Ramo Imperial</h3><p class="precio">S/100</p><a class="boton" onclick="pedirWhatsApp(this)">Pedir por WhatsApp</a></div></div>
+<div class="producto rosas"><img src="foto4.jpeg" onclick="abrirImagen(this)"><div class="info"><h3>Mini Ramo Encanto</h3><p class="precio">S/35</p><a class="boton" onclick="pedirWhatsApp(this)">Pedir por WhatsApp</a></div></div>
+<div class="producto rosas"><img src="foto5.jpeg" onclick="abrirImagen(this)"><div class="info"><h3>Ramo Dulce Amor</h3><p class="precio">S/35</p><a class="boton" onclick="pedirWhatsApp(this)">Pedir por WhatsApp</a></div></div>
+<div class="producto rosas"><img src="foto6.jpeg" onclick="abrirImagen(this)"><div class="info"><h3>Ramo Elegancia Rosa</h3><p class="precio">S/35</p><a class="boton" onclick="pedirWhatsApp(this)">Pedir por WhatsApp</a></div></div>
+<div class="producto rosas"><img src="foto7.jpeg" onclick="abrirImagen(this)"><div class="info"><h3>Ramo Corazón</h3><p class="precio">S/35</p><a class="boton" onclick="pedirWhatsApp(this)">Pedir por WhatsApp</a></div></div>
+<div class="producto rosas"><img src="foto8.jpeg" onclick="abrirImagen(this)"><div class="info"><h3>Ramo Encanto Floral</h3><p class="precio">S/35</p><a class="boton" onclick="pedirWhatsApp(this)">Pedir por WhatsApp</a></div></div>
+<div class="producto rosas"><img src="foto9.jpeg" onclick="abrirImagen(this)"><div class="info"><h3>Ramo Premium Rosé</h3><p class="precio">S/55</p><a class="boton" onclick="pedirWhatsApp(this)">Pedir por WhatsApp</a></div></div>
+<div class="producto rosas"><img src="foto10.jpeg" onclick="abrirImagen(this)"><div class="info"><h3>Ramo Elegancia Dorada</h3><p class="precio">S/55</p><a class="boton" onclick="pedirWhatsApp(this)">Pedir por WhatsApp</a></div></div>
+<div class="producto rosas"><img src="foto26.jpeg" onclick="abrirImagen(this)"><div class="info"><h3>Ramo Eternidad</h3><p class="precio">S/100</p><a class="boton" onclick="pedirWhatsApp(this)">Pedir por WhatsApp</a></div></div>
+
+<!-- PERSONALIZADOS -->
+
+<div class="producto personalizados"><img src="foto11.jpeg" onclick="abrirImagen(this)"><div class="info"><h3>Box Sorpresa Especial</h3><p class="precio">S/60</p><a class="boton" onclick="pedirWhatsApp(this)">Pedir por WhatsApp</a></div></div>
+<div class="producto personalizados"><img src="foto12.jpeg" onclick="abrirImagen(this)"><div class="info"><h3>Arreglo Globo Amor</h3><p class="precio">S/55</p><a class="boton" onclick="pedirWhatsApp(this)">Pedir por WhatsApp</a></div></div>
+<div class="producto personalizados"><img src="foto13.jpeg" onclick="abrirImagen(this)"><div class="info"><h3>Box Romance Premium</h3><p class="precio">S/65</p><a class="boton" onclick="pedirWhatsApp(this)">Pedir por WhatsApp</a></div></div>
+<div class="producto personalizados"><img src="foto14.jpeg" onclick="abrirImagen(this)"><div class="info"><h3>Detalle Dulce Amor</h3><p class="precio">S/60</p><a class="boton" onclick="pedirWhatsApp(this)">Pedir por WhatsApp</a></div></div>
+<div class="producto personalizados"><img src="foto15.jpeg" onclick="abrirImagen(this)"><div class="info"><h3>Arreglo Elegancia</h3><p class="precio">S/65</p><a class="boton" onclick="pedirWhatsApp(this)">Pedir por WhatsApp</a></div></div>
+<div class="producto personalizados"><img src="foto16.jpeg" onclick="abrirImagen(this)"><div class="info"><h3>Box Sorpresa Deluxe</h3><p class="precio">S/55</p><a class="boton" onclick="pedirWhatsApp(this)">Pedir por WhatsApp</a></div></div>
+<div class="producto personalizados"><img src="foto17.jpeg" onclick="abrirImagen(this)"><div class="info"><h3>Arreglo Celebración</h3><p class="precio">S/55</p><a class="boton" onclick="pedirWhatsApp(this)">Pedir por WhatsApp</a></div></div>
+
+<!-- SAN VALENTIN -->
+
+<div class="producto sanvalentin"><img src="foto18.jpeg" onclick="abrirImagen(this)"><div class="info"><h3>Love Box Deluxe</h3><p class="precio">S/85</p><a class="boton" onclick="pedirWhatsApp(this)">Pedir por WhatsApp</a></div></div>
+<div class="producto sanvalentin"><img src="foto19.jpeg" onclick="abrirImagen(this)"><div class="info"><h3>Box Amor Eterno</h3><p class="precio">S/85</p><a class="boton" onclick="pedirWhatsApp(this)">Pedir por WhatsApp</a></div></div>
+<div class="producto sanvalentin"><img src="foto21.jpeg" onclick="abrirImagen(this)"><div class="info"><h3>Arreglo Corazón Especial</h3><p class="precio">S/70</p><a class="boton" onclick="pedirWhatsApp(this)">Pedir por WhatsApp</a></div></div>
+<div class="producto sanvalentin"><img src="foto22.jpeg" onclick="abrirImagen(this)"><div class="info"><h3>Canasta Love Premium</h3><p class="precio">S/70</p><a class="boton" onclick="pedirWhatsApp(this)">Pedir por WhatsApp</a></div></div>
+
+<!-- PARA ELLOS -->
+
+<div class="producto ellos"><img src="foto20.jpeg" onclick="abrirImagen(this)"><div class="info"><h3>Detalle Especial para Él</h3><p class="precio">S/35</p><a class="boton" onclick="pedirWhatsApp(this)">Pedir por WhatsApp</a></div></div>
+<div class="producto ellos"><img src="foto23.jpeg" onclick="abrirImagen(this)"><div class="info"><h3>Box Caballero Premium</h3><p class="precio">S/45</p><a class="boton" onclick="pedirWhatsApp(this)">Pedir por WhatsApp</a></div></div>
+<div class="producto ellos"><img src="foto24.jpeg" onclick="abrirImagen(this)"><div class="info"><h3>Regalo Elegante para Él</h3><p class="precio">S/45</p><a class="boton" onclick="pedirWhatsApp(this)">Pedir por WhatsApp</a></div></div>
+<div class="producto ellos"><img src="foto25.jpeg" onclick="abrirImagen(this)"><div class="info"><h3>Canasta Especial Masculina</h3><p class="precio">S/45</p><a class="boton" onclick="pedirWhatsApp(this)">Pedir por WhatsApp</a></div></div>
+
+</div>
+</section>
+
+<section id="sobre">
+<h2 style="text-align:center">Sobre Nosotros</h2>
+<p style="max-width:800px;margin:auto;text-align:center">
+En <strong>Mimositos</strong> somos un negocio familiar que crea detalles especiales para sorprender y alegrar a las personas que más quieres. Cada regalo es preparado con dedicación y cariño, cuidando cada pequeño detalle.
+
+Nuestro deseo es llegar a más personas y seguir siendo parte de sus momentos especiales. Gracias por confiar en nosotros. 🎁✨
+</section>
+
+<section id="redes" class="redes">
+<h2>Síguenos en nuestras redes</h2>
+
+<a target="_blank" href="https://www.tiktok.com/@mimositos.peru?is_from_webapp=1&sender_device=pc">
+<img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
+</a>
+
+<a target="_blank" href="https://www.instagram.com/mimositos.peru">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+</a>
+
+</section>
+
+<section id="politicas">
+<h2 style="text-align:center">Políticas de Pedido</h2>
+
+<p style="max-width:800px;margin:auto;line-height:1.8">
+
+Políticas de Pedido – Mimositos 💝
+
+• Los pedidos se confirman con 50% de adelanto.  
+• El saldo restante debe cancelarse antes del envío o entrega.  
+• Verificar dirección, referencias y número de contacto para el delivery.  
+• Si no hay quien reciba el pedido, este regresará a tienda y se podrá coordinar un nuevo envío con costo adicional.
+
+Gracias por confiar en Mimositos para sorprender a alguien especial. 💐
+
+</p>
+</section>
+
+<section id="contacto" style="text-align:center">
+<h2>Contacto</h2>
+<p>📱 WhatsApp: 953334558</p>
+</section>
+
+<footer>
+© 2026 Mimositos
+</footer>
+
+<div class="lightbox" id="lightbox">
+<span onclick="cerrarImagen()">×</span>
+<img id="imagenGrande">
+</div>
+
+<a class="whatsapp-float" href="https://wa.me/51953334558" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+</a>
+
+<script>
+
+function abrirImagen(img){
+document.getElementById("lightbox").style.display="flex"
+document.getElementById("imagenGrande").src=img.src
+}
+
+function cerrarImagen(){
+document.getElementById("lightbox").style.display="none"
+}
+
+function pedirWhatsApp(boton){
+let producto = boton.parentElement.querySelector("h3").innerText
+let mensaje = "Hola, quiero pedir este producto: " + producto
+let url = "https://wa.me/51953334558?text=" + encodeURIComponent(mensaje)
+window.open(url, "_blank")
+}
+
+function filtrar(categoria){
+let productos=document.querySelectorAll(".producto")
+
+productos.forEach(p=>{
+if(categoria==="todos"){p.style.display="block"}
+else if(p.classList.contains(categoria)){p.style.display="block"}
+else{p.style.display="none"}
+})
+}
+
+</script>
+
+</body>
+</html>
