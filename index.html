@@ -168,6 +168,10 @@
             margin: 0 auto;
         }
 
+        .video-flex.reverse {
+            flex-direction: row-reverse;
+        }
+
         .video-container {
             flex: 1;
             max-width: 380px; 
@@ -232,7 +236,7 @@
         }
         .filter-btn:hover, .filter-btn.active { background: var(--color-1); color: #fff; border-color: var(--color-1); transform: translateY(-2px); }
 
-        .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 1300px; margin: 0 auto; }
+        .options-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; max-width: 1300px; margin: 0 auto; }
         .option-card-cat {
             background: var(--white); border-radius: 20px; text-align: center; cursor: pointer;
             transition: var(--transition); box-shadow: var(--shadow-card); display: flex;
@@ -361,8 +365,10 @@
 
         @media (max-width: 992px) {
             .video-flex { flex-direction: column; text-align: center; gap: 40px; }
+            .video-flex.reverse { flex-direction: column; }
             .video-container { margin: 0 auto; }
             .video-features li { justify-content: center; }
+            .options-grid { grid-template-columns: repeat(3, 1fr); gap: 15px; }
         }
 
         @media (max-width: 768px) {
@@ -398,6 +404,148 @@
             .policy-flex-container { flex-direction: column; text-align: center; }
             .policy-logo-side { order: -1; margin-bottom: 20px; }
             .policy-item { text-align: left; }
+            .options-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        }
+
+        /* --- FATHER's DAY SPECIAL SECTION --- */
+        .fathers-day-special {
+            background: var(--white);
+            padding: 80px 5%;
+            margin: 0px 2.5% 60px;
+            border-radius: 40px;
+            color: var(--text-dark);
+            position: relative;
+            box-shadow: 0 15px 40px rgba(95, 60, 51, 0.08);
+            border: 1px solid rgba(95, 60, 51, 0.05);
+            overflow: hidden;
+        }
+
+        .fathers-day-special::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(231, 148, 118, 0.05) 0%, rgba(241, 186, 133, 0.1) 100%);
+            pointer-events: none;
+        }
+
+        .fd-content-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 70px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .fd-video-container {
+            flex: 1;
+            max-width: 380px;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(95, 60, 51, 0.15);
+            border: 6px solid var(--white);
+            transition: var(--transition);
+        }
+
+        .fd-video-container:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(95, 60, 51, 0.2);
+        }
+
+        .fd-video-container video {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            aspect-ratio: 9 / 16;
+        }
+
+        .fd-text-content {
+            flex: 1.2;
+        }
+
+        .fd-tag {
+            display: inline-block;
+            background: rgba(231, 148, 118, 0.15);
+            color: var(--color-2);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .fd-title {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--color-1);
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .fd-desc {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .fd-features {
+            list-style: none;
+            margin-bottom: 35px;
+        }
+
+        .fd-features li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+
+        .fd-features li i {
+            color: var(--color-2);
+            font-size: 1.2rem;
+        }
+
+        .fd-btn {
+            background: var(--color-1);
+            color: var(--white);
+            padding: 16px 40px;
+            border-radius: 35px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.05rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(95, 60, 51, 0.2);
+            text-decoration: none;
+        }
+
+        .fd-btn:hover {
+            background: var(--color-2);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px rgba(231, 148, 118, 0.3);
+            color: var(--white);
+        }
+
+        @media (max-width: 992px) {
+            .fd-content-wrapper { flex-direction: column; text-align: center; gap: 40px; }
+            .fd-video-container { margin: 0 auto; }
+            .fd-features li { justify-content: center; }
+            .fd-title { font-size: 2.3rem; }
+            .fathers-day-special { padding: 60px 5%; margin: 0 15px 40px; border-radius: 30px; }
         }
     </style>
 </head>
@@ -429,6 +577,35 @@
         </div>
     </header>
 
+    <!-- Sección Especial Día del Padre -->
+    <section class="fathers-day-special" id="promo-padre">
+        <div class="fd-content-wrapper">
+            <div class="fd-video-container">
+                <video autoplay muted loop playsinline controls>
+                    <source src="dia del padre.mp4" type="video/mp4">
+                    Tu navegador no soporta videos.
+                </video>
+            </div>
+            
+            <div class="fd-text-content">
+                <span class="fd-tag"><i class="fas fa-crown"></i> Especial Día del Padre</span>
+                <h3 class="fd-title">Sorprende a Papá en su Día</h3>
+                <p class="fd-desc">
+                    Él merece lo mejor. Celebra a papá con detalles únicos, estéticos y llenos de amor que le robarán una gran sonrisa.
+                </p>
+                <ul class="fd-features">
+                    <li><i class="fas fa-check-circle"></i> Diseños exclusivos y elegantes para él.</li>
+                    <li><i class="fas fa-check-circle"></i> Box premium llenos de ternura.</li>
+                    <li><i class="fas fa-check-circle"></i> Personalización con fotos y dedicatorias.</li>
+                    <li><i class="fas fa-check-circle"></i> Entregas seguras con mucho amor.</li>
+                </ul>
+                <a href="#coleccion" class="fd-btn" onclick="selectCategory('papa')">
+                    Ver Regalos para Papá <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <section class="section" id="coleccion">
         <div class="section-header">
             <h2 class="section-title">Nuestra Colección</h2>
@@ -437,6 +614,7 @@
 
         <div class="filters">
             <button class="filter-btn active" onclick="filterGallery('todos', this)">Todos</button>
+            <button class="filter-btn" onclick="filterGallery('papa', this)">Para Papá</button>
             <button class="filter-btn" onclick="filterGallery('mama', this)">Para Mamá</button>
             <button class="filter-btn" onclick="filterGallery('rosas', this)">Rosas Eternas</button>
             <button class="filter-btn" onclick="filterGallery('personalizados', this)">Personalizados</button>
@@ -445,6 +623,10 @@
         </div>
 
         <div class="options-grid" id="options-grid">
+            <div class="option-card-cat" onclick="selectCategory('papa')">
+                <div class="cat-img"><img src="papa.jpeg" alt="Para Papá"></div>
+                <div class="cat-info"><h3>Para Papá</h3> <i class="fas fa-chevron-right" style="color: var(--color-2);"></i></div>
+            </div>
             <div class="option-card-cat" onclick="selectCategory('mama')">
                 <div class="cat-img"><img src="Golden glow.jpeg" alt="Para Mamá"></div>
                 <div class="cat-info"><h3>Para Mamá</h3> <i class="fas fa-chevron-right" style="color: var(--color-2);"></i></div>
@@ -468,6 +650,30 @@
         </div>
 
         <div class="products-grid" id="gallery" style="display: none;">
+            <article class="product-card item papa">
+                <div class="card-img-wrapper" onclick="openLightbox('garfiel.jpeg')"><img src="garfiel.jpeg" alt="Detalle Garfield Consentido"><div class="img-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="card-body"><h3 class="card-title">Detalle Garfield Consentido</h3><p class="card-price">S/50</p><button class="btn-whatsapp" onclick="orderWhatsApp(this)"><i class="fab fa-whatsapp"></i> Lo quiero</button></div>
+            </article>
+            <article class="product-card item papa">
+                <div class="card-img-wrapper" onclick="openLightbox('spiderman.jpeg')"><img src="spiderman.jpeg" alt="Héroe Spiderman Sorpresa"><div class="img-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="card-body"><h3 class="card-title">Héroe Spiderman Sorpresa</h3><p class="card-price">S/40</p><button class="btn-whatsapp" onclick="orderWhatsApp(this)"><i class="fab fa-whatsapp"></i> Lo quiero</button></div>
+            </article>
+            <article class="product-card item papa">
+                <div class="card-img-wrapper" onclick="openLightbox('lotso.jpeg')"><img src="lotso.jpeg" alt="Detalle Oso Lotso Especial"><div class="img-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="card-body"><h3 class="card-title">Detalle Oso Lotso Especial</h3><p class="card-price">S/60</p><button class="btn-whatsapp" onclick="orderWhatsApp(this)"><i class="fab fa-whatsapp"></i> Lo quiero</button></div>
+            </article>
+            <article class="product-card item papa">
+                <div class="card-img-wrapper" onclick="openLightbox('papa.jpeg')"><img src="papa.jpeg" alt="Arreglo Súper Papá Elegante"><div class="img-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="card-body"><h3 class="card-title">Arreglo Súper Papá Elegante</h3><p class="card-price">S/60</p><button class="btn-whatsapp" onclick="orderWhatsApp(this)"><i class="fab fa-whatsapp"></i> Lo quiero</button></div>
+            </article>
+            <article class="product-card item papa">
+                <div class="card-img-wrapper" onclick="openLightbox('papa2.jpeg')"><img src="papa2.jpeg" alt="Detalle Papá Consentido"><div class="img-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="card-body"><h3 class="card-title">Detalle Papá Consentido</h3><p class="card-price">S/60</p><button class="btn-whatsapp" onclick="orderWhatsApp(this)"><i class="fab fa-whatsapp"></i> Lo quiero</button></div>
+            </article>
+            <article class="product-card item papa">
+                <div class="card-img-wrapper" onclick="openLightbox('papa3.jpeg')"><img src="papa3.jpeg" alt="Caja Regalo Papá Premium"><div class="img-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="card-body"><h3 class="card-title">Caja Regalo Papá Premium</h3><p class="card-price">S/60</p><button class="btn-whatsapp" onclick="orderWhatsApp(this)"><i class="fab fa-whatsapp"></i> Lo quiero</button></div>
+            </article>
             <article class="product-card item mama">
                 <div class="card-img-wrapper" onclick="openLightbox('Golden glow.jpeg')"><img src="Golden glow.jpeg" alt="Golden glow"><div class="img-overlay"><i class="fas fa-search-plus"></i></div></div>
                 <div class="card-body"><h3 class="card-title">Golden glow</h3><p class="card-price">S/70</p><button class="btn-whatsapp" onclick="orderWhatsApp(this)"><i class="fab fa-whatsapp"></i> Lo quiero</button></div>
@@ -525,7 +731,19 @@
                 <div class="card-img-wrapper" onclick="openLightbox('foto26.jpeg')"><img src="foto26.jpeg" alt="Ramo Eternidad"><div class="img-overlay"><i class="fas fa-search-plus"></i></div></div>
                 <div class="card-body"><h3 class="card-title">Ramo Eternidad</h3><p class="card-price">S/100</p><button class="btn-whatsapp" onclick="orderWhatsApp(this)"><i class="fab fa-whatsapp"></i> Lo quiero</button></div>
             </article>
+            <article class="product-card item rosas">
+                <div class="card-img-wrapper" onclick="openLightbox('rosas2.jpeg')"><img src="rosas2.jpeg" alt="Ramo Pasión Rosa"><div class="img-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="card-body"><h3 class="card-title">Ramo Pasión Rosa</h3><p class="card-price">S/35</p><button class="btn-whatsapp" onclick="orderWhatsApp(this)"><i class="fab fa-whatsapp"></i> Lo quiero</button></div>
+            </article>
+            <article class="product-card item rosas">
+                <div class="card-img-wrapper" onclick="openLightbox('corona1.jpeg')"><img src="corona1.jpeg" alt="Corona Real de Rosas"><div class="img-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="card-body"><h3 class="card-title">Corona Real de Rosas</h3><p class="card-price">S/55</p><button class="btn-whatsapp" onclick="orderWhatsApp(this)"><i class="fab fa-whatsapp"></i> Lo quiero</button></div>
+            </article>
 
+            <article class="product-card item personalizados">
+                <div class="card-img-wrapper" onclick="openLightbox('perso.jpeg')"><img src="perso.jpeg" alt="Floral Snoopy"><div class="img-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="card-body"><h3 class="card-title">Floral Snoopy</h3><p class="card-price">S/60</p><button class="btn-whatsapp" onclick="orderWhatsApp(this)"><i class="fab fa-whatsapp"></i> Lo quiero</button></div>
+            </article>
             <article class="product-card item personalizados">
                 <div class="card-img-wrapper" onclick="openLightbox('foto11.jpeg')"><img src="foto11.jpeg" alt="Box Sorpresa Especial"><div class="img-overlay"><i class="fas fa-search-plus"></i></div></div>
                 <div class="card-body"><h3 class="card-title">Box Sorpresa Especial</h3><p class="card-price">S/60</p><button class="btn-whatsapp" onclick="orderWhatsApp(this)"><i class="fab fa-whatsapp"></i> Lo quiero</button></div>
@@ -582,7 +800,7 @@
 
             <article class="product-card item ellos">
                 <div class="card-img-wrapper" onclick="openLightbox('foto27.jpeg')"><img src="foto27.jpeg" alt="Canasta Jugadorazo"><div class="img-overlay"><i class="fas fa-search-plus"></i></div></div>
-                <div class="card-body"><h3 class="card-title">Canasta Jugadorazo</h3><p class="card-price">S/65</p><button class="btn-whatsapp" onclick="orderWhatsApp(this)"><i class="fab fa-whatsapp"></i> Lo quiero</button></div>
+                <div class="card-body"><h3 class="card-title">Canasta Jugadorazo</h3><p class="card-price">S/45</p><button class="btn-whatsapp" onclick="orderWhatsApp(this)"><i class="fab fa-whatsapp"></i> Lo quiero</button></div>
             </article>
             <article class="product-card item ellos">
                 <div class="card-img-wrapper" onclick="openLightbox('foto20.jpeg')"><img src="foto20.jpeg" alt="Detalle Especial para Él"><div class="img-overlay"><i class="fas fa-search-plus"></i></div></div>
@@ -590,15 +808,15 @@
             </article>
             <article class="product-card item ellos">
                 <div class="card-img-wrapper" onclick="openLightbox('foto23.jpeg')"><img src="foto23.jpeg" alt="Box Caballero Premium"><div class="img-overlay"><i class="fas fa-search-plus"></i></div></div>
-                <div class="card-body"><h3 class="card-title">Box Caballero Premium</h3><p class="card-price">S/55</p><button class="btn-whatsapp" onclick="orderWhatsApp(this)"><i class="fab fa-whatsapp"></i> Lo quiero</button></div>
+                <div class="card-body"><h3 class="card-title">Box Caballero Premium</h3><p class="card-price">S/45</p><button class="btn-whatsapp" onclick="orderWhatsApp(this)"><i class="fab fa-whatsapp"></i> Lo quiero</button></div>
             </article>
             <article class="product-card item ellos">
                 <div class="card-img-wrapper" onclick="openLightbox('foto24.jpeg')"><img src="foto24.jpeg" alt="Regalo Elegante para Él"><div class="img-overlay"><i class="fas fa-search-plus"></i></div></div>
-                <div class="card-body"><h3 class="card-title">Regalo Elegante para Él</h3><p class="card-price">S/55</p><button class="btn-whatsapp" onclick="orderWhatsApp(this)"><i class="fab fa-whatsapp"></i> Lo quiero</button></div>
+                <div class="card-body"><h3 class="card-title">Regalo Elegante para Él</h3><p class="card-price">S/45</p><button class="btn-whatsapp" onclick="orderWhatsApp(this)"><i class="fab fa-whatsapp"></i> Lo quiero</button></div>
             </article>
             <article class="product-card item ellos">
                 <div class="card-img-wrapper" onclick="openLightbox('foto25.jpeg')"><img src="foto25.jpeg" alt="Canasta Especial Masculina"><div class="img-overlay"><i class="fas fa-search-plus"></i></div></div>
-                <div class="card-body"><h3 class="card-title">Canasta Especial Masculina</h3><p class="card-price">S/55</p><button class="btn-whatsapp" onclick="orderWhatsApp(this)"><i class="fab fa-whatsapp"></i> Lo quiero</button></div>
+                <div class="card-body"><h3 class="card-title">Canasta Especial Masculina</h3><p class="card-price">S/45</p><button class="btn-whatsapp" onclick="orderWhatsApp(this)"><i class="fab fa-whatsapp"></i> Lo quiero</button></div>
             </article>
             <article class="product-card item ellos">
                 <div class="card-img-wrapper" onclick="openLightbox('foto28.jpeg')"><img src="foto28.jpeg" alt="Box dulcero para él"><div class="img-overlay"><i class="fas fa-search-plus"></i></div></div>
@@ -643,7 +861,10 @@
                 </a>
             </div>
         </div>
+
     </section>
+
+
 
     <section class="section info-section" id="nosotros">
         <div class="section-header">
@@ -726,6 +947,7 @@
         </div>
         <div class="footer-bottom">
             <p>&copy; <span id="current-year"></span> Mimositos. Hecho con mucho amor. 💕</p>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: #fcedea;">Desarrollado por <a href="https://github.com/ElBryan-dev" target="_blank" style="font-weight: 700; color: var(--color-2); text-decoration: none;">ElBryan</a></p>
         </div>
     </footer>
 
@@ -786,6 +1008,15 @@
             const message = `Hola Mimositos ✨, me encantó este detalle y quiero pedirlo: *${productTitle}* 💖`;
             const url = `https://wa.me/51953334558?text=${encodeURIComponent(message)}`;
             window.open(url, '_blank');
+        }
+
+        // Ocultar sección del Día del Padre a partir del Lunes 22 de Junio
+        const promoPadre = document.getElementById('promo-padre');
+        if (promoPadre) {
+            const expirationDate = new Date('2026-06-22T00:00:00');
+            if (new Date() >= expirationDate) {
+                promoPadre.remove();
+            }
         }
     </script>
 </body>
